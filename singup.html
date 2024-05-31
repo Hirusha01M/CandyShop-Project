@@ -1,0 +1,228 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candyfloss / singup </title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #FFB853 0, #EE6C25 100%);
+        }
+
+        .menu {
+            display: flex;
+            justify-content: space-between;
+            background-color:#bfc2ec;
+            padding: 12px;
+            color:rgb(46, 38, 38);
+            
+        }
+
+        .menu a {
+            color: rgb(46, 38, 38);
+            text-decoration: none;
+            padding: 10px;
+        }
+
+        .menu a:hover {
+            background-color: #8ad184;
+            border-radius: 18px;
+        }
+
+        .menu .toggle-button {
+            cursor: pointer;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .body-background {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to bottom, #7b7ca7 0, #2ff3c2 100%);
+        }
+
+        .modal-container {
+            width: 420px;
+            background-color: transparent;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0px 5px 0px rgba(0,0,0,0.15);
+            border-radius: 4%;
+        }
+
+        .title-bar {
+            display: flex;
+            width: 100%;
+            background-color: #945edb;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            padding: 20px 30px 18px 30px;
+            font-size: 24px;
+            color: #e7e5e0;
+            text-shadow: 0px 1px rgba(0,0,0,0.15);
+        }
+
+        .title-bar .brand {
+            margin-right: 12px;
+        }
+
+        .input-section {
+            position: relative;
+            background-color: #ffffff;
+            padding: 12px 30px;
+            overflow: hidden;
+            transition: all .4s;
+        }
+
+        input.login-field {
+            height: 60px;
+            width: 100%;
+            border: 0;
+            border-bottom: 2px solid #e3e3e3;
+            font-size: 16px;
+            color: #a3a3a3;
+            text-indent: 15px;
+            outline: none;
+            transition: all .4s;
+        }
+
+        input.login-field:focus {
+            border-bottom-color: #a3a3a3;
+        }
+
+        input.login-field::placeholder {
+            color: #817d7d;
+        }
+
+        .last-field {
+            margin-bottom: 30px;
+        }
+
+        .forgot-pw {
+            float: left;
+            font-size: 16px;
+            color: #F6913F;
+            line-height: 37px;
+            cursor: pointer;
+        }
+
+        .forgot-pw:hover {
+            color: #E98737;
+            text-decoration: underline;
+        }
+
+        .submit-button {
+            float: right;
+            height: 40px;
+            padding: 0px 165px;
+            border-radius: 4px;
+            background-color:#945edb;
+            font-size: 16px;
+            line-height: 37px;
+            color: #ffffff;
+            margin-bottom: 14px;
+            box-shadow: 0px 5px 0px rgba(0,0,0,0.10);
+            cursor: pointer;
+            transition: all .4s;
+        }
+
+        .submit-button:hover {
+            background-color: #61317c;
+        }
+
+
+        .footer {
+            background-color: #39475f;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <div class="toggle-button" onclick="toggleMenu()">☰ Menu</div>
+        <div class="menu-items">
+            <a href="#">Home</a>
+            <a href="#">Shop</a>
+            <a href="#">Contact</a>
+            <a href="#">About</a>
+            <a href="#">New</a>
+        </div>
+    </div>
+
+    <div class="body-background">
+        <div class="modal-container">
+            <div class="title-bar">
+            Join With Us     
+            </div>
+            <div class="input-section">
+                
+                <div class="input-fields">
+                    <input type="text" class="login-field" placeholder="User Name">
+                    <input type="text" class="login-field" placeholder="NIC">
+                
+        
+                    <input type="text" class="login-field" placeholder="Phone Number">
+                    <input type="password" class="login-field last-field" placeholder=" Password">
+                    
+                </div>
+                <div class="submit-section">            
+                 
+                    
+                    <div class="submit-button correct">
+                    Join
+                    </div>
+                    <div class="forgot-pw"> <i> do you have an account ? </i></div>
+                </div>
+                <div class="submit-button correct">
+                    Log 
+                    </div>
+
+            </div>
+        </div>
+    </div>
+
+    
+
+    <div class="footer">
+        &copy; 2024 <b> Candyfloss.</b> 
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const menuItems = document.querySelector('.menu-items');
+            menuItems.classList.toggle('hidden');
+        }
+
+        document.querySelector(".submit-button.correct").addEventListener("click", function() {
+            document.querySelector(".input-fields").classList.add("run-ani");
+            setTimeout(function() {
+                document.querySelector(".submit-section").classList.add("run-ani");
+            }, 300);
+            setTimeout(function() {
+                document.querySelector("#success-tick").classList.add("run-ani");
+            }, 1100);
+            setTimeout(function() {
+                document.querySelector("span.success-text").classList.add("run-ani");
+            }, 1300);
+        });
+
+        document.querySelector(".code-rerun").addEventListener("click", function() {
+            document.querySelector(".input-fields").classList.remove("run-ani");
+            document.querySelector(".submit-section").classList.remove("run-ani");
+            document.querySelector("#success-tick").classList.remove("run-ani");
+            document.querySelector("span.success-text").classList.remove("run-ani");
+        });
+    </script>
+</body>
+</html>
